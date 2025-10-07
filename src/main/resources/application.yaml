@@ -1,0 +1,18 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+lwm2m:
+  keys:
+    public: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP1MZ2KogwOnUH39XXZWK/0eOOA9hbtcfkLzRusF0K133Ak/wNYiFzdMigJYKwUnUPN59Sg3ulR5JzQ8IZ09U5g==
+    private: MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCD/c7MjMFkrLIqiGeYqnJj3WJY7Yg5xJ1BNwDM7WdEusg==
+    server: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaSHglrXfsX8sJKFFvYqD3dtsmoHZLlkrEt8ZOFQvS1xdmoWdK7MqseURYMOEp1yZ0s3nil5du62rX+QsOVbY7w==
+mqtt:
+  broker: xxxx
+  clientId: server1
+  username: server1
+  password: xxxx
+  cleanSession: false
+  connectionTimeout: 10
+  keepAliveInterval: 30
