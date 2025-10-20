@@ -1,137 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Custom Gateway Management Object - edgez.ai -->
-<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M-v1_1.xsd">
-	<Object ObjectType="MODefinition">
-		<Name>Gateway Management</Name>
-		<Description1><![CDATA[This object provides monitoring and control of gateway-specific functionality including device management, statistics, and configuration.]]></Description1>
-		<ObjectID>25</ObjectID>
-		<ObjectURN>urn:edgez:lwm2m:custom:25:1.0</ObjectURN>
-		<LWM2MVersion>1.1</LWM2MVersion>
-		<ObjectVersion>1.0</ObjectVersion>
-		<MultipleInstances>Single</MultipleInstances>
-		<Mandatory>Optional</Mandatory>
-		<Resources>
-			<Item ID="0">
-				<Name>Gateway ID</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>String</Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Gateway identifier]]></Description>
-			</Item>
-			<Item ID="1">
-				<Name>Connected Devices</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>0-</RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Number of connected devices]]></Description>
-			</Item>
-			<Item ID="2">
-				<Name>Max Devices</Name>
-				<Operations>RW</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>1-</RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Maximum number of devices supported]]></Description>
-			</Item>
-			<Item ID="3">
-				<Name>Active Sessions</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>0-</RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Number of active sessions]]></Description>
-			</Item>
-			<Item ID="4">
-				<Name>Total Data RX</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>0-</RangeEnumeration>
-				<Units>bytes</Units>
-				<Description><![CDATA[Total data received]]></Description>
-			</Item>
-			<Item ID="5">
-				<Name>Total Data TX</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>0-</RangeEnumeration>
-				<Units>bytes</Units>
-				<Description><![CDATA[Total data transmitted]]></Description>
-			</Item>
-			<Item ID="6">
-				<Name>Uptime</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>Integer</Type>
-				<RangeEnumeration>0-</RangeEnumeration>
-				<Units>s</Units>
-				<Description><![CDATA[Gateway uptime in seconds]]></Description>
-			</Item>
-			<Item ID="7">
-				<Name>Gateway Status</Name>
-				<Operations>RW</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Mandatory</Mandatory>
-				<Type>String</Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Gateway status (active/inactive/maintenance)]]></Description>
-			</Item>
-			<Item ID="8">
-				<Name>Firmware Version</Name>
-				<Operations>R</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type>String</Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Gateway firmware version]]></Description>
-			</Item>
-			<Item ID="9">
-				<Name>Auto Registration</Name>
-				<Operations>RW</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type>Boolean</Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Auto device registration enabled]]></Description>
-			</Item>
-			<Item ID="10">
-				<Name>Reset Statistics</Name>
-				<Operations>E</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type></Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Reset gateway statistics]]></Description>
-			</Item>
-			<Item ID="11">
-				<Name>Reboot Gateway</Name>
-				<Operations>E</Operations>
-				<MultipleInstances>Single</MultipleInstances>
-				<Mandatory>Optional</Mandatory>
-				<Type></Type>
-				<RangeEnumeration></RangeEnumeration>
-				<Units></Units>
-				<Description><![CDATA[Reboot the gateway]]></Description>
-			</Item>
-		</Resources>
-		<Description2 />
-	</Object>
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M.xsd">
+    <Object ObjectType="MODefinition">
+        <Name>Connected Device Registry</Name>
+        <Description1>This Object provides information about individual devices connected to the LwM2M Gateway.</Description1>
+        <ObjectID>25</ObjectID>
+        <ObjectURN>urn:oma:lwm2m:ext:25</ObjectURN>
+        <LWM2MVersion>1.0</LWM2MVersion>
+        <ObjectVersion>1.0</ObjectVersion>
+        <MultipleInstances>Multiple</MultipleInstances>
+        <Mandatory>Optional</Mandatory>
+
+        <Resources>
+            <Item ID="0">
+                <Name>Device ID</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Integer</Type>
+                <RangeEnumeration>0..4294967295</RangeEnumeration>
+                <Units></Units>
+                <Description>Unique 32-bit identifier for the connected device</Description>
+            </Item>
+
+            <Item ID="1">
+                <Name>Instance ID</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Integer</Type>
+                <RangeEnumeration>0..65535</RangeEnumeration>
+                <Units></Units>
+                <Description>16-bit instance identifier that can be modified by the server</Description>
+            </Item>
+
+            <Item ID="2">
+                <Name>Connection Type</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Integer</Type>
+                <RangeEnumeration>0=WIFI, 1=BLE, 2=LORA, 3=RS485</RangeEnumeration>
+                <Units></Units>
+                <Description>Type of connection used by the device</Description>
+            </Item>
+
+            <Item ID="3">
+                <Name>Last Seen</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Time</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units>s</Units>
+                <Description>Unix timestamp when the device was last seen</Description>
+            </Item>
+
+            <Item ID="4">
+                <Name>Online</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Current online status of the device</Description>
+            </Item>
+        </Resources>
+    </Object>
 </LWM2M>
