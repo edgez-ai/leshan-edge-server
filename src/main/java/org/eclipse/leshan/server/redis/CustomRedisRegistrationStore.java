@@ -277,14 +277,14 @@ public class CustomRedisRegistrationStore implements RegistrationStore, Startabl
                     : update.getAdditionalAttributes();
 
                 // RegistrationUpdate does not expose customRegistrationData; keep existing from r
-                Map<String, String> customRegistrationData = r.getCustomRegistrationData();
+                Map<String, String> customRegistrationData = r.getApplicationData();
 
                     // this needs to be done in any case, even if no properties have changed, in order
                     // to extend the client registration time-to-live period ...
                     Date lastUpdate = new Date();
 
                 Registration.Builder builder = new Registration.Builder(r.getId(), r.getEndpoint(),
-                    transportData, r.getEndpointUri());
+                    transportData, r.getLastEndpointUsed());
 
                 builder.registrationDate(lastUpdate)
                     // unmodifiable data
@@ -303,7 +303,7 @@ public class CustomRedisRegistrationStore implements RegistrationStore, Startabl
                             .availableInstances(availableInstances) //
                             // out of spec data
                             .additionalRegistrationAttributes(additionalAttributes) //
-                            .customRegistrationData(customRegistrationData);
+                            .applicationData(customRegistrationData);
 
                     updatedRegistration =  builder.build();
 

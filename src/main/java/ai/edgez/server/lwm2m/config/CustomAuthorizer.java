@@ -32,14 +32,13 @@ public class CustomAuthorizer implements Authorizer {
     }
 
 	@Override
-	public Authorization isAuthorized(UplinkRequest<?> request, Registration registration, LwM2mPeer sender,
-			EndpointUri endpointUri) {
+	public Authorization isAuthorized(UplinkRequest<?> request, Registration registration, LwM2mPeer sender) {
 
-		if (!checkEndpointUri(request, registration, sender, endpointUri)) {
+		if (!checkEndpointUri(request, registration, sender, registration.getLastEndpointUsed())) {
 			return Authorization.declined();
 		}
 
-		return checkIdentity(request, registration, sender, endpointUri);
+		return checkIdentity(request, registration, sender, registration.getLastEndpointUsed());
 	}
 
 	protected boolean checkEndpointUri(UplinkRequest<?> request, Registration registration, LwM2mPeer sender,
@@ -47,7 +46,7 @@ public class CustomAuthorizer implements Authorizer {
 		if (!(request instanceof RegisterRequest)) {
 			// we do not allow to client to switch to another server endpoint within same
 			// registration
-			if (registration.getEndpointUri().equals(endpointUri)) {
+			if (registration.getLastEndpointUsed().equals(endpointUri)) {
 				return true;
 			} else {
 				return false;
@@ -103,4 +102,6 @@ public class CustomAuthorizer implements Authorizer {
 			}
 		}
 	}
+
+
 }

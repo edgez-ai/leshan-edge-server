@@ -18,6 +18,7 @@ package ai.edgez.server.lwm2m.api;
 import java.util.List;
 
 import org.eclipse.leshan.core.endpoint.LwM2mEndpoint;
+import org.eclipse.leshan.server.endpoint.LwM2mServerEndpoint;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,7 @@ import ai.edgez.server.lwm2m.config.LeshanServerComponent;
 @RequestMapping("/api/server")
 public class ServerController {
 
-    private final List<? extends LwM2mEndpoint> endpoints;
+    private final List<? extends LwM2mServerEndpoint> endpoints;
 
     public ServerController(LeshanServerComponent server) {
         this.endpoints = server.getServer().getEndpoints();
@@ -49,7 +50,7 @@ public class ServerController {
     @GetMapping("/endpoint")
     public ArrayNode getEndpoints() {
         ArrayNode endpointsArrayNode = JsonNodeFactory.instance.arrayNode();
-        for (LwM2mEndpoint endpoint : endpoints) {
+        for (LwM2mServerEndpoint endpoint : endpoints) {
             ObjectNode ep = JsonNodeFactory.instance.objectNode();
             ObjectNode uri = JsonNodeFactory.instance.objectNode();
             ep.set("uri", uri);
