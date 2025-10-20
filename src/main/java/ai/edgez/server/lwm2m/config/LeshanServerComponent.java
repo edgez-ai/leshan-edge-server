@@ -55,8 +55,6 @@ public class LeshanServerComponent {
 
         builder.setObjectModelProvider(modelProvider);
         
-        
-
         builder.setSecurityStore(securityStore);
         builder.setRegistrationStore(registrationStore);
 

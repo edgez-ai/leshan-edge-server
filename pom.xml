@@ -107,16 +107,6 @@
       	<version>4.0.0-M5</version>
       </dependency>
       
-      <dependency>
-      	<groupId>org.eclipse.leshan</groupId>
-      	<artifactId>leshan-lwm2m-bsserver</artifactId>
-      	<version>2.0.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-      	<groupId>org.eclipse.leshan</groupId>
-      	<artifactId>leshan-tl-cf-bsserver-coap</artifactId>
-      	<version>2.0.0-SNAPSHOT</version>
-      </dependency>
        <dependency>
       	<groupId>org.eclipse.leshan</groupId>
       	<artifactId>leshan-lwm2m-core</artifactId>
