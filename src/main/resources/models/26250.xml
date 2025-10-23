@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M.xsd">
+    <Object ObjectType="MODefinition">
+    <Name>W3C WoT Thing Definition</Name>
+    <Description1>This object represents a W3C Web of Things (WoT) Thing and aggregates references to the data features, actions, events, and metadata that make up the complete Thing description.</Description1>
+        <ObjectID>26250</ObjectID>
+        <ObjectURN>urn:oma:lwm2m:ext:26250</ObjectURN>
+        <LWM2MVersion>1.0</LWM2MVersion>
+        <ObjectVersion>1.0</ObjectVersion>
+        <MultipleInstances>Multiple</MultipleInstances>
+        <Mandatory>Optional</Mandatory>
+
+        <Resources>
+            <Item ID="0">
+                <Name>Thing Identifier</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Immutable identifier that matches the @id of the WoT Thing.</Description>
+            </Item>
+
+            <Item ID="1">
+                <Name>Title</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Human readable title for the Thing.</Description>
+            </Item>
+
+            <Item ID="2">
+                <Name>Description</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Rich description of the Thing for documentation.</Description>
+            </Item>
+
+            <Item ID="3">
+                <Name>Property References</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Multiple</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Objlnk</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>References to instances of the W3C WoT Data Feature object that belong to this Thing.</Description>
+            </Item>
+
+            <Item ID="4">
+                <Name>Action References</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Multiple</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Objlnk</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>References to instances of the W3C WoT Action object that belong to this Thing.</Description>
+            </Item>
+
+            <Item ID="5">
+                <Name>Event References</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Multiple</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Objlnk</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>References to instances of the W3C WoT Event object that belong to this Thing.</Description>
+            </Item>
+
+            <Item ID="6">
+                <Name>Version</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Semantic version string for the Thing Description.</Description>
+            </Item>
+
+            <Item ID="7">
+                <Name>Last Updated</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Time</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units>s</Units>
+                <Description>Timestamp (UTC) of the last change applied to this Thing instance.</Description>
+            </Item>
+        </Resources>
+    </Object>
+</LWM2M>

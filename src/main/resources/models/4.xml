@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2014 Open Mobile Alliance Ltd.
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+  2. Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived
+  from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  The above license is used as a license under copyright only.  Please
+  reference the OMA IPR Policy for patent licensing terms:
+  https://www.omaspecworks.org/about/intellectual-property-rights/
+  
+-->
+
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M-v1_1.xsd">
+	<Object ObjectType="MODefinition">
+		<Name>Connectivity Monitoring</Name>
+		<Description1><![CDATA[This object provides the connectivity related information available to the LWM2M Client to aid the LWM2M Server in determining the network information including layer 3 and layer 2 connectivity.]]></Description1>
+		<ObjectID>4</ObjectID>
+		<ObjectURN>urn:oma:lwm2m:oma:4:1.3</ObjectURN>
+		<LWM2MVersion>1.0</LWM2MVersion>
+		<ObjectVersion>1.3</ObjectVersion>
+		<MultipleInstances>Multiple</MultipleInstances>
+		<Mandatory>Optional</Mandatory>
+		<Resources>
+			<Item ID="0">
+				<Name>Network Bearer</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Mandatory</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Indicates the network bearer used for the current LWM2M communication session from the network bearer list.]]></Description>
+			</Item>
+			<Item ID="1">
+				<Name>Available Network Bearer</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Multiple</MultipleInstances>
+				<Mandatory>Mandatory</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Indicates list of current available network bearer. Each Resource Instance has a value from the network bearer list.]]></Description>
+			</Item>
+			<Item ID="2">
+				<Name>Radio Signal Strength</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Mandatory</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units>dBm</Units>
+				<Description><![CDATA[This node contains the received signal strength indication in dBm. For cellular network, this is the received signal strength of the LTE Reference Signal Received Power (RSRP) or the GSM Received Signal Strength Indicator (RSSI).]]></Description>
+			</Item>
+			<Item ID="3">
+				<Name>Link Quality</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration>0-100</RangeEnumeration>
+				<Units>%</Units>
+				<Description><![CDATA[This contains received link quality e.g., LQI for IEEE 802.15.4 (range 0-255), RxQual Downlink for GSM (range 0-7), RSRQ for LTE, etc.]]></Description>
+			</Item>
+			<Item ID="4">
+				<Name>IP Addresses</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Multiple</MultipleInstances>
+				<Mandatory>Mandatory</Mandatory>
+				<Type>String</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[The IP addresses assigned to the connectivity interface. (e.g., IPv4, IPv6, etc.)]]></Description>
+			</Item>
+			<Item ID="5">
+				<Name>Router IP Addresses</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Multiple</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>String</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[The IP address of the next-hop IP router. Note: This IP Address doesn't indicate the Server IP address.]]></Description>
+			</Item>
+			<Item ID="6">
+				<Name>Link Utilization</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration>0-100</RangeEnumeration>
+				<Units>%</Units>
+				<Description><![CDATA[The average utilization of the communication link to the next-hop IP router in %.]]></Description>
+			</Item>
+			<Item ID="7">
+				<Name>APN</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Multiple</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>String</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Access Point Name in case Network Bearer Resource is a cellular network.]]></Description>
+			</Item>
+			<Item ID="8">
+				<Name>Cell ID</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration></RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Serving Cell ID in case Network Bearer Resource is a cellular network.]]></Description>
+			</Item>
+			<Item ID="9">
+				<Name>SMNC</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration>0-999</RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Serving Mobile Network Code. In case Network Bearer Resource has 0(cellular network), this resource indicates the Serving Mobile Network Code (SMNC) to the device.]]></Description>
+			</Item>
+			<Item ID="10">
+				<Name>SMCC</Name>
+				<Operations>R</Operations>
+				<MultipleInstances>Single</MultipleInstances>
+				<Mandatory>Optional</Mandatory>
+				<Type>Integer</Type>
+				<RangeEnumeration>0-999</RangeEnumeration>
+				<Units></Units>
+				<Description><![CDATA[Serving Mobile Country Code. In case Network Bearer Resource has 0(cellular network), this resource indicates the Serving Mobile Country Code (SMCC) to the device.]]></Description>
+			</Item>
+		</Resources>
+		<Description2></Description2>
+	</Object>
+</LWM2M>

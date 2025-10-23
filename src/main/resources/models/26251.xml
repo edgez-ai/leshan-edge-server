@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M.xsd">
+    <Object ObjectType="MODefinition">
+    <Name>W3C WoT Data Feature</Name>
+    <Description1>This object represents a WoT data feature (typically a property or data capability) and links it to the LwM2M resources that provide the data.</Description1>
+        <ObjectID>26251</ObjectID>
+        <ObjectURN>urn:oma:lwm2m:ext:26251</ObjectURN>
+        <LWM2MVersion>1.0</LWM2MVersion>
+        <ObjectVersion>1.0</ObjectVersion>
+        <MultipleInstances>Multiple</MultipleInstances>
+        <Mandatory>Optional</Mandatory>
+
+        <Resources>
+            <Item ID="0">
+                <Name>Feature Identifier</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Immutable identifier that maps to the WoT affordance name or @id.</Description>
+            </Item>
+
+            <Item ID="1">
+                <Name>Linked Resources</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Multiple</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Per-instance path (e.g. /3303/0/5700) to the LwM2M resource(s) that implement this feature.</Description>
+            </Item>
+
+            <Item ID="2">
+                <Name>Owning Thing</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Objlnk</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Link to the W3C WoT Thing Definition instance that contains this feature.</Description>
+            </Item>
+
+            <Item ID="3">
+                <Name>Last Updated</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Time</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units>s</Units>
+                <Description>Timestamp (UTC) of the last change applied to this feature instance.</Description>
+            </Item>
+        </Resources>
+    </Object>
+</LWM2M>

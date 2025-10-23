@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M.xsd">
+    <Object ObjectType="MODefinition">
+    <Name>W3C WoT Event</Name>
+    <Description1>This object represents a WoT event affordance and carries the executable script that produces or emits the event payload.</Description1>
+        <ObjectID>26253</ObjectID>
+        <ObjectURN>urn:oma:lwm2m:ext:26253</ObjectURN>
+        <LWM2MVersion>1.0</LWM2MVersion>
+        <ObjectVersion>1.0</ObjectVersion>
+        <MultipleInstances>Multiple</MultipleInstances>
+        <Mandatory>Optional</Mandatory>
+
+        <Resources>
+            <Item ID="0">
+                <Name>Event Identifier</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Immutable identifier that maps to the WoT event name or @id.</Description>
+            </Item>
+
+            <Item ID="1">
+                <Name>Script</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Opaque</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Executable script that emits or produces the event payload when run. The encoding is implementation specific.</Description>
+            </Item>
+
+            <Item ID="2">
+                <Name>Script Format</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Optional hint describing the interpreter or media type of the supplied script (e.g. text/javascript, application/lua).</Description>
+            </Item>
+
+            <Item ID="3">
+                <Name>Owning Thing</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Objlnk</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description>Link to the W3C WoT Thing Definition instance that owns this event.</Description>
+            </Item>
+
+            <Item ID="4">
+                <Name>Last Updated</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Optional</Mandatory>
+                <Type>Time</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units>s</Units>
+                <Description>Timestamp (UTC) of the last change applied to this event instance.</Description>
+            </Item>
+        </Resources>
+    </Object>
+</LWM2M>
